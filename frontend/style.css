@@ -1,30 +1,30 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --danger-color: #e74c3c;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
-
-:root {
-    --bleu: #007BFF;
-    --rouge: #FF3B30;
-    --blanc: #FFFFFF;
-    --gris-clair: #f8f9fa;
-    --gris: #ccc;
-    --noir: #212529;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: var(--gris-clair);
-    color: var(--noir);
-    padding: 20px;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
 }
 
 .container {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
+    padding: 20px;
 }
-
 
 header {
     text-align: center;
@@ -32,215 +32,265 @@ header {
 }
 
 header h1 {
-    font-size: 3em;
-    color: var(--bleu);
+    color: blue;
+    font-size: 2.5rem;
 }
 
 header p {
-    font-size: 1.2em;
-    color: var(--rouge);
+    color: #0b1dc3;
 }
+
 .dashboard {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
     margin-bottom: 30px;
 }
 
-.balance-card,
-.budget-card {
-    flex: 1;
-    background-color: var(--bleu);
+.balance-card, .budget-card {
+    background: white;
     padding: 20px;
-    border-radius: 15px;
-    color: white;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
 }
 
-.balance-card h2,
-.budget-card h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+.balance-card h2, .budget-card h2 {
+    color: var(--dark-color);
+    margin-bottom: 15px;
+}
+
+.balance-card p#balance {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
 .stats {
-    margin-top: 10px;
-}
-
-.stats div {
     display: flex;
     justify-content: space-between;
 }
 
-.transactions {
-    margin-top: 30px;
+.stats div {
+    text-align: center;
 }
 
-.transactions h2 {
+.stats span:first-child {
+    display: block;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.stats span:last-child {
+    font-weight: bold;
+}
+
+#income {
+    color: var(--secondary-color);
+}
+
+#expenses {
+    color: var(--danger-color);
+}
+
+#budget-list {
     margin-bottom: 15px;
-    color: var(--bleu);
+}
+
+.budget-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.transactions {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
 }
 
 .filters {
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 15px;
+    flex-wrap: wrap;
 }
 
-.filters select,
-.filters input,
-.filters button {
-    padding: 8px 12px;
-    border-radius: 10px;
-    border: 1px solid var(--gris);
+.filters select, .filters input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
-#transactions-table {
+table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 15px;
-    background-color: var(--blanc);
 }
 
-#transactions-table th,
-#transactions-table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
-#transactions-table th {
-    background-color: var(--bleu);
-    color: white;
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
 }
 
-button,
-.btn-export {
-    background-color: var(--rouge);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+tr:hover {
+    background-color: #f5f5f5;
 }
 
-button:hover,
-.btn-export:hover {
-    background-color: #cc2e24;
+.tag {
+    display: inline-block;
+    background-color: #e0e0e0;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    margin-right: 5px;
 }
 
 .action-btn {
-    padding: 6px 12px;
-    border-radius: 12px;
-    font-size: 0.9em;
-    margin: 2px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
 }
 
 .edit-btn {
-    background-color: #28a745;
-    color: white;
+    background-color: #f39c12;
+    margin-right: 5px;
 }
 
 .edit-btn:hover {
-    background-color: #218838;
+    background-color: #d35400;
 }
 
 .delete-btn {
-    background-color: #dc3545;
-    color: white;
+    background-color: var(--danger-color);
 }
 
 .delete-btn:hover {
-    background-color: #c82333;
+    background-color: #c0392b;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background-color: var(--blanc);
-    padding: 25px;
-    border-radius: 15px;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-    position: relative;
-}
-
-.modal-content h2 {
-    margin-bottom: 15px;
-    color: var(--bleu);
-}
-
-.modal-content form > div {
-    margin-bottom: 10px;
-}
-
-.modal-content label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.modal-content input,
-.modal-content select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid var(--gris);
-    border-radius: 8px;
-}
-
-.modal-content button[type="submit"],
-#add-category-btn {
-    background-color: var(--bleu);
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 1.5em;
-    cursor: pointer;
-}
-
-.charts,
-.charts-pair {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 30px;
-    justify-content: center;
+.charts {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
 }
 
 .chart-container {
-    background-color: var(--blanc);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    max-width: 500px;
+    position: relative;
+    height: 400px;
     width: 100%;
 }
 
-@media screen and (max-width: 768px) {
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
     .dashboard {
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
-    .charts-pair {
-        flex-direction: column;
-    }
+}
+
+/* Style pour le bouton d'export */
+.btn-export {
+    background-color: #ff0707;
+    margin-left: 10px;
+}
+.btn-export:hover {
+    background-color: #ce7602;
+}
+
+/* Style pour les alertes */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+
+/* Adaptation pour les nouveaux graphiques */
+.chart-container {
+    margin-top: 30px;
+    height: 400px;
+    width: 100%;
 }
